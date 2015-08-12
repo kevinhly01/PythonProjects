@@ -1,7 +1,7 @@
 # Credit Card Validator using Luhn's Algorithm
 # Using Python3
-__author__ = Kevin Ly
-__version__ = 1.0
+# __author__ = Kevin Ly
+# __version__ = 1.0
 
 import sys
 
@@ -23,10 +23,7 @@ while True:
 	card_num = input('Please enter the credit card number you want to validate \n')
 	card_num= list(map(int,card_num))
 
-	if(CheckCardValid(card_num) == 0):
-		print("Credit Card is Valid")
-	else:
-		print("Credit Card is Invalid")
+	print("Credit Card is Valid") if CheckCardValid(card_num) == 0 else print("Credit Card is Invalid")
 
 	if not ValidateAnother():
 		sys.exit()
