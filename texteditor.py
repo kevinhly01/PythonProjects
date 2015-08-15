@@ -11,8 +11,7 @@ class Main(QtWidgets.QMainWindow):
 
 	def __init__(self):
 			QtWidgets.QMainWindow.__init__(self)
-			# method that creates user interface; method always attached to obj
-			# self.filename = ""
+			
 			self.initUI()
 
 	def initUI(self):
@@ -20,6 +19,12 @@ class Main(QtWidgets.QMainWindow):
 		closeAction.setShortcut('Ctrl+Q')
 		closeAction.setStatusTip('Close Notepad')
 		closeAction.triggered.connect(self.close)
+
+		newAction = QtWidgets.QAction('New', self)
+		newAction.setShortcut('Ctrl+N')
+		newAction.setStatusTip('Create New File')
+		newAction.triggered.connect(self.newFile)
+
 
 		saveAction = QtWidgets.QAction('Save', self)
 		saveAction.setShortcut('Ctrl+S')
@@ -35,6 +40,7 @@ class Main(QtWidgets.QMainWindow):
 		menu = self.menuBar()
 		fileMenu = menu.addMenu('File')
 		fileMenu.addAction(closeAction)
+		fileMenu.addAction(newAction)
 		fileMenu.addAction(openAction)
 		fileMenu.addAction(saveAction)
 
@@ -46,6 +52,10 @@ class Main(QtWidgets.QMainWindow):
 		self.setGeometry(100,100,1030,800)
 		self.setWindowTitle("Kevin's Text Editor")
 		self.show()
+
+	def newFile(self):
+		self.text.clear()
+
 	def saveFile(self):
 		#filename = QtWidgets.QFileDialog.getSaveFileName(self,'Save File', os.getenv('HOME'))
 		filename = QtWidgets.QFileDialog.getSaveFileName(self, 'Save File', os.getenv('HOME'))[0]
@@ -74,9 +84,6 @@ def main():
 
 	# Tell program to wait for us to close app before ending program
 	sys.exit(app.exec_())
-
-# Used only if file run directly and not imported. Allows you to import
-# file and use stuff in it without running stuff in program
 
 if __name__ == "__main__":
 	main()

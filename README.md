@@ -1,7 +1,12 @@
 # PythonProjects
 
-Run program using Python3
+Credit Card Validator
 
-Enter a credit card number you want to validate
+	Run program using Python3
 
-If you want to validate another credit card, enter yes or y or enter no to end the program.
+	Enter a credit card number you want to validate
+
+	If you want to validate another credit card, enter yes or y or enter no to end the program.
+
+Text Editor
+	Simple text editor with functionalities that include new, open and save file.
